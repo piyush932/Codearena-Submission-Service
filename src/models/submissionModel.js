@@ -38,6 +38,18 @@ const submissionSchema = new mongoose.Schema({
     type: Date,
     default: null,
   },
+  passedTestCases: {
+    type: Number,
+    default: 0,
+  },
+  totalTestCases: {
+    type: Number,
+    default: 0,
+  },
+  failedTestCaseIndex: {
+    type: Number,
+    default: null,
+  },
 });
 
 const Submission = mongoose.model("Submission", submissionSchema);

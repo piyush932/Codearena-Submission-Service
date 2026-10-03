@@ -49,7 +49,10 @@ function startEvaluationWorker() {
           error: error || null,
           passedTestCases: passedTestCases ?? 0,
           totalTestCases: totalTestCases ?? 0,
-          failedTestCaseIndex: failedTestCaseIndex ?? null,
+          failedTestCaseIndex:
+            failedTestCaseIndex === undefined || failedTestCaseIndex === null
+              ? null
+              : failedTestCaseIndex,
           evaluatedAt: new Date(),
         },
         {
