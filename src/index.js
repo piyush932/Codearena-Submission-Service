@@ -4,6 +4,7 @@ const connectToDB = require('./config/dbConfig');
 const serverConfig = require('./config/serverConfig');
 const errorHandler = require('./utils/errorHandler');
 const evaluationWorker = require('./workers/evaluationWorker');
+const startEvaluationWorker = require("./workers/evaluationWorker");
 
 // fastify.register(require('@fastify/cors'), { 
 //   origin: '*', // Allow all origins
@@ -21,6 +22,6 @@ fastify.listen({ port: serverConfig.PORT, host: '0.0.0.0' }, async (err) => {
     }
     await connectToDB();
 
-    evaluationWorker("EvaluationQueue");
+    startEvaluationWorker();
     console.log(`Server up at port ${serverConfig.PORT}`);
 });
